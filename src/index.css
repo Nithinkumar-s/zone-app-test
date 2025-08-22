@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles (optional) */
+body {
+  @apply antialiased bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100;
+}
