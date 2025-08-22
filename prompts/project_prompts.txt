@@ -1,0 +1,182 @@
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+You are an expert React developer. I will provide you with a reference image of a website design (a work order/task management dashboard).  
+Your task is to build a **React application** that looks exactly like the image and includes full functionality.  
+
+// I have execution policy restriction → use this to fix:  
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass  
+
+// Install vite:  
+npm create vite  
+
+Requirements:  
+1. **Frontend Stack** → vite.js + React (functional components + hooks), styled with Tailwind CSS.  
+
+2. **UI Layout** → Recreate the provided design pixel-perfect:  
+   - Left panel: work order details (status badge, description, assigned users, relations, observers, insights).  
+   - Middle content: tabbed sections (Overview, Work, Cost, Division). Inside Overview:  
+     - Location & space with interactive map preview.  
+     - Assets list.  
+     - Attachments (cards for images, PDF, etc.).  
+   - Right panel: Activity feed (comments, updates, actions) with a "Submit" text input.  
+   - Top bar: Breadcrumb navigation, Save status, and action buttons ("Next Action", "Add new").  
+
+3. **CRUD Functionality**:  
+   - Add, edit, delete Assets and Attachments.  
+   - Add, edit, delete Relations, Observers.  
+   - Add new Activity comments with timestamp.  
+   - Edit task details (title, description, priority, due date, assignee).  
+
+4. **Data Handling**:  
+   - Use mock JSON data as the backend.  
+   - Store all records in React state (no database, no external API).  
+   - Data must update dynamically in UI when CRUD actions happen.  
+
+5. **Routing** → Use React Router with routes:  
+   - `/` → Dashboard (list of all tasks).  
+   - `/task/:id` → Task details (this detailed page).  
+   - `/add` → Add new task form.  
+   - `/about` → About page.  
+
+6. **State Management** → Use React `useState`, `useEffect`, and `useContext` (if needed) for global state.  
+
+7. **Responsive Design** → Mobile-first, scaling to tablet and desktop.  
+   - Collapse left and right panels into accordions on small screens.  
+   - Keep Activity panel toggleable on mobile.  
+
+8. **UI/UX Enhancements**:  
+   - Smooth transitions for modals, hover effects on buttons/cards.  
+   - Tooltips on icons.  
+   - Status badges with colors (In Progress, Completed, High Priority, etc.).  
+
+9. **Accessibility**:  
+   - Use semantic HTML and ARIA attributes.  
+   - Ensure tab navigation and screen-reader support.  
+
+10. **Code Quality**:  
+   - Modular components (`Navbar.jsx`, `Sidebar.jsx`, `TaskDetails.jsx`, `ActivityFeed.jsx`, `MapPreview.jsx`, `AssetsList.jsx`, `AttachmentsList.jsx`).  
+   - Reusable buttons, input fields, and modals.  
+   - Clean, well-commented code.  
+
+Deliverables:  
+- Full React project code with `App.jsx`, `components/`, and `pages/`.  
+- Tailwind configuration with custom colors/fonts as per the design.  
+- Instructions to run:  
+  ```bash
+  npm install  
+  npm run dev
+
+
+----------------------------------------------------------------------------
+
+
+reset project and new files only blacnk page
+
+
+--------------------------------------------------------
+
+
+c:\Users\ns\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip{52F17E29-B408-4461-B934-15D646A0AAD0}.png
+
+create this navbar in layout
+
+---------------------------------
+
+// Create a React component for a Work Order details page.
+// Layout should have two columns:
+// - Left: description, assigned to, relations, observers, insights, location, assets, attachments
+// - Right: activity feed with tabs
+// Use Tailwind CSS for styling and flexbox for layout.
+
+--------------------------------
+
+// Create a vertical left sidebar navigation component.
+// It should be fixed to the left side of the screen.
+// Include icons for navigation (e.g., Home, Work Orders, Add New, Settings).
+// Use simple rounded icon buttons with hover effects.
+// The active icon should have a highlighted background.
+// Add a small user avatar/profile button at the bottom of the sidebar.// Create a vertical left sidebar navigation component.
+// It should be fixed to the left side of the screen.
+// Include icons for navigation (e.g., Home, Work Orders, Add New, Settings).
+// Use simple rounded icon buttons with hover effects.
+// The active icon should have a highlighted background.
+// Add a small user avatar/profile button at the bottom of the sidebar.
+// Use Tailwind CSS for styling (bg-gray-100, h-screen, w-16, flex flex-col, justify-between, items-center, p-2).
+// Use Tailwind CSS for styling (bg-gray-100, h-screen, w-16, flex flex-col, justify-between, items-center, p-2).
+
+-------------------------------
+
+add a breadcrump section after the navbar like the image
+in workorder details page top
+
+------------------------
+
+aria-label="All work orders"
+
+remove this button
+
+
+--------------
+
+// Refer to the provided Figma design (image).
+// Identify icons in the UI (sidebar navigation, tabs, status badges, actions).
+// Suggest the closest matching icons from available React icon packs.
+// Prioritize these packs in order:
+// 1. lucide-react
+// 2. @heroicons/react
+// 3. react-icons (feather, material design, fontawesome)
+// Replace placeholder icons with the appropriate imported icons.
+// Example: sidebar "+" → Plus icon from lucide-react, Activity clock → Clock icon,
+// Status badge → Circle/CheckCircle/AlertTriangle, Attachments → Paperclip,
+// Comments → MessageSquare, Updates → RefreshCw, Actions → CheckSquare.
+
+----------
+
+// above the two section we need a fullsection there //should be the sr-243 loose electrical in progress //high due dasttae and also provide requested users
+//refer the image for more clarity
+
+-----------
+
+
+inline-flex items-center gap-1 rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-700 border border-gray-200
+inline-flex items-center gap-1 rounded-md bg-red-100 px-2 py-0.5 text-[11px] font-medium text-red-700
+inline-flex items-center gap-1 rounded-md bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-800
+//this should be in the left side of requested by under text-lg font-semibold leading-snug text-gray-900 class
+
+-------------------
+
+
+text-[11px] font-semibold text-gray-900
+//assigned to should like Requested by style
+
+------------
+
+//should show assigned to users under the assigned to label
+
+
+-----
+
+
+//refer the image and style assigned to like this
+
+------
+
+//refer the image and style assigned to like this 
+
+-----
+
+//by refering the image modify relations observers and insights
+
+----
+
+
+//make all buttons cliickble
+//button shows high is a drop down button with values high,medium,low,crital
+due date is date picker button 
+
+remove this change
+
+
+comment : last change given some issue so we reverted the above change 
